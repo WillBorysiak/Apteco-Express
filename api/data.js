@@ -4,7 +4,6 @@ const router = express.Router();
 require('dotenv').config();
 
 router.get('/', async (req, res, next) => {
-	console.log(process.env.URL);
 	try {
 		const response = await axios.get(process.env.URL);
 		res.json(response.data);
