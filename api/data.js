@@ -1,10 +1,12 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
+require('dotenv').config();
 
 router.get('/', async (req, res, next) => {
+	console.log(process.env.URL);
 	try {
-		const response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
+		const response = await axios.get(process.env.URL);
 		res.json(response.data);
 	} catch (err) {
 		console.log(err);
